@@ -1,0 +1,27 @@
+EQL Rule
+Here is an example of an EQL rule that you could use to detect network connections to the IP address 51.178.39.184:
+
+sequence by host.name
+  [network where destination.ip == "51.178.39.184"]
+
+
+KQL Rule
+Here is an example of a KQL (Kibana Query Language) rule to detect the same network connections:
+
+destination.ip: "51.178.39.184"
+
+EQL Rule
+For EQL, you can create a rule to detect network connections to the specific URLs:
+
+sequence by host.name
+  [network where destination.address in ("51.178.39.184", "80", "443", "444") and 
+   url.path in ("/Temporary_Listen_Addresses/", "/autodiscover/autodiscovers/", "/ews/exchange/", "/ews/exchanges/")]
+
+KQL Rule
+For KQL, you can use a similar query to detect network connections:
+
+destination.address: ("51.178.39.184", "80", "443", "444") and 
+url.path: ("/Temporary_Listen_Addresses/", "/autodiscover/autodiscovers/", "/ews/exchange/", "/ews/exchanges/")
+
+  
+
