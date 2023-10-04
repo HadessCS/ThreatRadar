@@ -1,0 +1,29 @@
+
+YARA Rule
+For YARA, you can create rules to match the file hashes. Below is an example of a YARA rule to detect a file with the hash 3ceb959554450c4ed97bc7c7fbe1d84815a8a3d5be07da9e8d9bb2e705caf9eb:
+
+rule example_hash_detection
+{
+    meta:
+        description = "Detects a specific file hash"
+        hash = "3ceb959554450c4ed97bc7c7fbe1d84815a8a3d5be07da9e8d9bb2e705caf9eb"
+
+    condition:
+        filesize > 0 and
+        hash.sha256(0, filesize) == hash
+}
+
+YARA Rule
+For YARA, you can create rules to match the file hashes. Below is an example of a YARA rule to detect a file with the hash c5b4542d61af74cf7454d7f1c8d96218d709de38f94ccfa7c16b15f726dc08c0:
+
+rule example_hash_detection
+{
+    meta:
+        description = "Detects a specific file hash"
+        hash = "c5b4542d61af74cf7454d7f1c8d96218d709de38f94ccfa7c16b15f726dc08c0"
+
+    condition:
+        filesize > 0 and
+        hash.sha256(0, filesize) == hash
+}
+
